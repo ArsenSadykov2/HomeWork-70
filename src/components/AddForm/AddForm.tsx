@@ -1,18 +1,26 @@
-import {ChangeEvent, FormEvent, useState} from "react";
+import {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {User} from "../../types";
 
 interface Props {
     onSubmitFormToAddContact: (newContact: User) => void;
+    editContact?: User;
 }
 
-const QuoteForm: React.FC<Props> = ({onSubmitFormToAddContact}) => {
+const AddForm: React.FC<Props> = ({onSubmitFormToAddContact, editContact}) => {
     const [form, setForm] = useState<User>({
         name: '',
         email: '',
         phone: '',
         image: '',
     });
+
+    useEffect(() => {
+        if(editContact){
+            setForm(editContact)
+        }
+    },[editContact]);
+
     const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const {value, name} = e.target;
         setForm(prevState => ({...prevState, [name]: value}));
@@ -91,4 +99,4 @@ const QuoteForm: React.FC<Props> = ({onSubmitFormToAddContact}) => {
     );
 };
 
-export default QuoteForm;
+export default AddForm;

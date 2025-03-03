@@ -3,6 +3,7 @@ import {useState} from "react";
 import {User} from "../../types";
 import {useNavigate} from "react-router-dom";
 import axiosApi from "../../axiosApi.ts";
+import Loader from "../../components/UI/Loader/Loader.tsx";
 
 const NewContact = () => {
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ const NewContact = () => {
     };
     return (
         <div className="container">
-           <AddForm onSubmitFormToAddContact={createContact}/>
+            {loading ? <Loader /> : <AddForm onSubmitFormToAddContact={createContact}/>}
         </div>
     );
 };

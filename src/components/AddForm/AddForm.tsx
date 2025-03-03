@@ -79,6 +79,19 @@ const AddForm: React.FC<Props> = ({onSubmitFormToAddContact, editContact}) => {
                         onChange={inputChangeHandler}
                     />
                 </div>
+                {form.image && (
+                    <div className="mb-3">
+                        <p>Preview:</p>
+                        <div>
+                            <img
+                                src={form.image}
+                                alt="Preview"
+                                className="img-fluid mt-2"
+                                style={{ maxWidth: "100%", height: "auto" }}
+                            />
+                        </div>
+                    </div>
+                )}
                 <div className="mb-3">
                     <button
                         className="btn btn-primary me-5"

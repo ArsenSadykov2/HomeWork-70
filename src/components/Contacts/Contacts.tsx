@@ -16,9 +16,10 @@ const Contacts: React.FC<ContactsProps> = ({ contacts, onClickItem }) => {
                     <div className="card">
                         <img src={contact.image ? contact.image : imageUrl } className="card-img-top" alt={contact.name} />
                         <div className="card-body">
-                            <h5 className="card-title">{contact.name}</h5>
-                            <p className="card-text">{contact.phone}</p>
-                            <p className="card-text">{contact.email}</p>
+                            <h5 className="card-title">Name: {contact.name}</h5>
+                            <hr/>
+                            <p className="card-text">Phone: {contact.phone}</p>
+                            <p className="card-text">E-Mail: {contact.email}</p>
                         </div>
                     </div>
                 </div>

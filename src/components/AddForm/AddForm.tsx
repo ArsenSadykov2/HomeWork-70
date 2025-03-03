@@ -64,7 +64,6 @@ const QuoteForm: React.FC<Props> = ({onSubmitFormToAddContact}) => {
                 <div className="mb-3">
                     <label htmlFor="image">Photo</label>
                     <input
-                        required
                         className="form-control"
                         type="text"
                         value={form.image}
